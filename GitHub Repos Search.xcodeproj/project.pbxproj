@@ -19,6 +19,8 @@
 		48067CD9291BF1CD004C462B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CD8291BF1CD004C462B /* SearchViewModel.swift */; };
 		48067CE8291C1B62004C462B /* ReposData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CE7291C1B62004C462B /* ReposData.swift */; };
 		48067CEA291C1DA3004C462B /* RepoViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CE9291C1DA3004C462B /* RepoViewData.swift */; };
+		48067CF0291C228A004C462B /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CEE291C228A004C462B /* RepoTableViewCell.swift */; };
+		48067CF1291C228A004C462B /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48067CEF291C228A004C462B /* RepoTableViewCell.xib */; };
 		95ED8B26C370ABF0771B5EA7 /* Pods_GitHub_Repos_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F508CE105B24FAE8A7F35 /* Pods_GitHub_Repos_Search.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		48067CD8291BF1CD004C462B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		48067CE7291C1B62004C462B /* ReposData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposData.swift; sourceTree = "<group>"; };
 		48067CE9291C1DA3004C462B /* RepoViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewData.swift; sourceTree = "<group>"; };
+		48067CEE291C228A004C462B /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		48067CEF291C228A004C462B /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
 		6770A5BAB26BDE91CF29D702 /* Pods-GitHub Repos Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Repos Search.debug.xcconfig"; path = "Target Support Files/Pods-GitHub Repos Search/Pods-GitHub Repos Search.debug.xcconfig"; sourceTree = "<group>"; };
 		A9CD3E50B3F3FD4A805549E1 /* Pods-GitHub Repos Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Repos Search.release.xcconfig"; path = "Target Support Files/Pods-GitHub Repos Search/Pods-GitHub Repos Search.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				48067CD4291BEBAF004C462B /* App Life Cycle */,
-				48067CDA291BFA90004C462B /* Model */,
-				48067CD5291BEC40004C462B /* Search */,
+				48067CED291C1FC9004C462B /* RepoListView */,
+				48067CD5291BEC40004C462B /* SearchView */,
 				48067CAD291BEA48004C462B /* Assets.xcassets */,
 				48067CAF291BEA48004C462B /* LaunchScreen.storyboard */,
 				48067CB2291BEA48004C462B /* Info.plist */,
@@ -157,13 +161,13 @@
 			path = "App Life Cycle";
 			sourceTree = "<group>";
 		};
-		48067CD5291BEC40004C462B /* Search */ = {
+		48067CD5291BEC40004C462B /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
 				48067CD7291BF1B8004C462B /* ViewModel */,
 				48067CD6291BEC49004C462B /* View */,
 			);
-			path = Search;
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		48067CD6291BEC49004C462B /* View */ = {
@@ -186,18 +190,60 @@
 		48067CDA291BFA90004C462B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				48067CDB291BFA9D004C462B /* RepoModel */,
+				48067CDB291BFA9D004C462B /* Repo */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		48067CDB291BFA9D004C462B /* RepoModel */ = {
+		48067CDB291BFA9D004C462B /* Repo */ = {
 			isa = PBXGroup;
 			children = (
 				48067CE7291C1B62004C462B /* ReposData.swift */,
 				48067CE9291C1DA3004C462B /* RepoViewData.swift */,
 			);
-			path = RepoModel;
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		48067CED291C1FC9004C462B /* RepoListView */ = {
+			isa = PBXGroup;
+			children = (
+				48067CDA291BFA90004C462B /* Model */,
+				48067CF5291C22F2004C462B /* ViewModel */,
+				48067CF2291C2294004C462B /* Views */,
+			);
+			path = RepoListView;
+			sourceTree = "<group>";
+		};
+		48067CF2291C2294004C462B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				48067CF4291C22C4004C462B /* ListRepos */,
+				48067CF3291C22A3004C462B /* RepoTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		48067CF3291C22A3004C462B /* RepoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				48067CEF291C228A004C462B /* RepoTableViewCell.xib */,
+				48067CEE291C228A004C462B /* RepoTableViewCell.swift */,
+			);
+			path = RepoTableViewCell;
+			sourceTree = "<group>";
+		};
+		48067CF4291C22C4004C462B /* ListRepos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ListRepos;
+			sourceTree = "<group>";
+		};
+		48067CF5291C22F2004C462B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C237F783039BE5FFF87041C9 /* Frameworks */ = {
@@ -317,6 +363,7 @@
 				48067CB1291BEA48004C462B /* LaunchScreen.storyboard in Resources */,
 				48067CAE291BEA48004C462B /* Assets.xcassets in Resources */,
 				48067CAC291BEA47004C462B /* Main.storyboard in Resources */,
+				48067CF1291C228A004C462B /* RepoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +433,7 @@
 				48067CA9291BEA47004C462B /* SearchViewController.swift in Sources */,
 				48067CA5291BEA47004C462B /* AppDelegate.swift in Sources */,
 				48067CEA291C1DA3004C462B /* RepoViewData.swift in Sources */,
+				48067CF0291C228A004C462B /* RepoTableViewCell.swift in Sources */,
 				48067CE8291C1B62004C462B /* ReposData.swift in Sources */,
 				48067CA7291BEA47004C462B /* SceneDelegate.swift in Sources */,
 				48067CD9291BF1CD004C462B /* SearchViewModel.swift in Sources */,
@@ -574,7 +622,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,7 +652,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

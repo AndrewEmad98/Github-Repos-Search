@@ -1,6 +1,6 @@
 
 import Foundation
-// MARK: - Welcome
+// MARK: - ReposData
 struct ReposData: Codable {
     let totalCount: Int
     let incompleteResults: Bool

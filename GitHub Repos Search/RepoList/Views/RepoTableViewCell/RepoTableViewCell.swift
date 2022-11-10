@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RepoTableViewCell: UITableViewCell {
 
@@ -25,6 +26,6 @@ class RepoTableViewCell: UITableViewCell {
         starsNumberLabel.text = repo.starsCount
         repoDescriptionLabel.text = repo.repoDescription
         repoNameLabel.text = repo.repoName
-        // add KingFisher Here to fetch the two images
+        ownerAvatarImageView.kf.setImage(with: repo.ownerAvatarURL.toURl)
     }
 }

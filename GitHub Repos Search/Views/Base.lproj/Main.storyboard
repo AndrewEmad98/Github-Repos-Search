@@ -19,10 +19,29 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="GitHub" id="hzm-wO-wAt"/>
+                    <connections>
+                        <segue destination="LW4-O6-DnD" kind="show" identifier="GoToDetails" id="HxZ-Vu-ixd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlB-rf-Xsl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1339.1304347826087" y="83.705357142857139"/>
+        </scene>
+        <!--Repos List View Controller-->
+        <scene sceneID="vv8-dZ-RYy">
+            <objects>
+                <viewController id="LW4-O6-DnD" customClass="ReposListViewController" customModule="GitHub_Repos_Search" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OHH-Gp-0Ko">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mkA-jK-Nr0"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cAu-dQ-8xX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xCf-Xz-iwb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2132" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aH3-Jt-6E8">

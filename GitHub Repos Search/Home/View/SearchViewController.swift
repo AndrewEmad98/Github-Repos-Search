@@ -11,10 +11,10 @@ import RxCocoa
 
 class SearchViewController: UIViewController{
 
-    // properties
+    //MARK: - properties
     private let searchController = UISearchController()
     private let tableView = UITableView()
-    private let viewModel = SearchViewModel()
+    private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -35,12 +35,12 @@ class SearchViewController: UIViewController{
         let searchResults = searchController.searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .flatMapLatest { query -> Observable<[RepoViewData]> in
+            .flatMapLatest { [weak self] query -> Observable<[RepoViewData]> in
+                guard let self = self else { return .just([]) }
                 if query.isEmpty {
                     return .just([])
                 }
-         //       return viewModel.searchGitHub(query).catchAndReturn([])
-                return .just([])
+                return self.viewModel.searchGitHub(query).catchAndReturn([])
             }.observe(on: MainScheduler.instance)
         searchResults.bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
             cell.cellSetup(repo: element)

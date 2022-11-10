@@ -1,6 +1,11 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
 import Foundation
-// MARK: - ReposData
+
+// MARK: - Welcome
 struct ReposData: Codable {
     let totalCount: Int
     let incompleteResults: Bool
@@ -42,25 +47,20 @@ struct Item: Codable {
     let issuesURL, pullsURL, milestonesURL, notificationsURL: String
     let labelsURL, releasesURL: String
     let deploymentsURL: String
-    let createdAt, updatedAt, pushedAt: Date
     let gitURL, sshURL: String
     let cloneURL: String
     let svnURL: String
     let homepage: String?
     let size, stargazersCount, watchersCount: Int
-    let language: String
+    let language: String?
     let hasIssues, hasProjects, hasDownloads, hasWiki: Bool
     let hasPages, hasDiscussions: Bool
     let forksCount: Int
-    let mirrorURL: String?
     let archived, disabled: Bool
     let openIssuesCount: Int
-    let license: License?
     let allowForking, isTemplate, webCommitSignoffRequired: Bool
     let topics: [String]
-    let visibility: Visibility
     let forks, openIssues, watchers: Int
-    let defaultBranch: DefaultBranch
     let score: Int
 
     enum CodingKeys: String, CodingKey {
@@ -109,9 +109,6 @@ struct Item: Codable {
         case labelsURL = "labels_url"
         case releasesURL = "releases_url"
         case deploymentsURL = "deployments_url"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case pushedAt = "pushed_at"
         case gitURL = "git_url"
         case sshURL = "ssh_url"
         case cloneURL = "clone_url"
@@ -127,41 +124,19 @@ struct Item: Codable {
         case hasPages = "has_pages"
         case hasDiscussions = "has_discussions"
         case forksCount = "forks_count"
-        case mirrorURL = "mirror_url"
         case archived, disabled
         case openIssuesCount = "open_issues_count"
-        case license
         case allowForking = "allow_forking"
         case isTemplate = "is_template"
         case webCommitSignoffRequired = "web_commit_signoff_required"
-        case topics, visibility, forks
+        case topics, forks
         case openIssues = "open_issues"
         case watchers
-        case defaultBranch = "default_branch"
         case score
     }
 }
 
-enum DefaultBranch: String, Codable {
-    case main = "main"
-    case master = "master"
-    case the31Dev = "3.1dev"
-    case the50 = "5.0"
-}
 
-// MARK: - License
-struct License: Codable {
-    let key, name, spdxID: String
-    let url: String?
-    let nodeID: String
-
-    enum CodingKeys: String, CodingKey {
-        case key, name
-        case spdxID = "spdx_id"
-        case url
-        case nodeID = "node_id"
-    }
-}
 
 // MARK: - Owner
 struct Owner: Codable {
@@ -203,8 +178,3 @@ enum TypeEnum: String, Codable {
     case organization = "Organization"
     case user = "User"
 }
-
-enum Visibility: String, Codable {
-    case visibilityPublic = "public"
-}
-

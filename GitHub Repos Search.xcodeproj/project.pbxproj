@@ -23,6 +23,10 @@
 		48067CF1291C228A004C462B /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48067CEF291C228A004C462B /* RepoTableViewCell.xib */; };
 		488A48D6291CF0D600C0C6C2 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48D5291CF0D600C0C6C2 /* ReposListViewController.swift */; };
 		488A48DC291CFD4800C0C6C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48DB291CFD4800C0C6C2 /* String+Extension.swift */; };
+		488A48F1291D096100C0C6C2 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F0291D096100C0C6C2 /* AppError.swift */; };
+		488A48F3291D099A00C0C6C2 /* MoyaProviderServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */; };
+		488A48F5291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F4291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift */; };
+		488A48FB291D215E00C0C6C2 /* MoyaNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48FA291D215E00C0C6C2 /* MoyaNetworkManager.swift */; };
 		95ED8B26C370ABF0771B5EA7 /* Pods_GitHub_Repos_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F508CE105B24FAE8A7F35 /* Pods_GitHub_Repos_Search.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,10 @@
 		48067CEF291C228A004C462B /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
 		488A48D5291CF0D600C0C6C2 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		488A48DB291CFD4800C0C6C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		488A48F0291D096100C0C6C2 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaProviderServices.swift; sourceTree = "<group>"; };
+		488A48F4291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProviderProtocol.swift; sourceTree = "<group>"; };
+		488A48FA291D215E00C0C6C2 /* MoyaNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaNetworkManager.swift; sourceTree = "<group>"; };
 		6770A5BAB26BDE91CF29D702 /* Pods-GitHub Repos Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Repos Search.debug.xcconfig"; path = "Target Support Files/Pods-GitHub Repos Search/Pods-GitHub Repos Search.debug.xcconfig"; sourceTree = "<group>"; };
 		A9CD3E50B3F3FD4A805549E1 /* Pods-GitHub Repos Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Repos Search.release.xcconfig"; path = "Target Support Files/Pods-GitHub Repos Search/Pods-GitHub Repos Search.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,8 +137,9 @@
 		48067CA3291BEA47004C462B /* GitHub Repos Search */ = {
 			isa = PBXGroup;
 			children = (
-				48067CD4291BEBAF004C462B /* App Life Cycle */,
 				488A48DA291CFD3500C0C6C2 /* Extensions */,
+				48067CD4291BEBAF004C462B /* App Life Cycle */,
+				488A48EF291D087800C0C6C2 /* Networking */,
 				48067CED291C1FC9004C462B /* RepoList */,
 				48067CD5291BEC40004C462B /* Home */,
 				488A48D9291CFA1600C0C6C2 /* Views */,
@@ -258,6 +267,17 @@
 				488A48DB291CFD4800C0C6C2 /* String+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		488A48EF291D087800C0C6C2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				488A48FA291D215E00C0C6C2 /* MoyaNetworkManager.swift */,
+				488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */,
+				488A48F4291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift */,
+				488A48F0291D096100C0C6C2 /* AppError.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		C237F783039BE5FFF87041C9 /* Frameworks */ = {
@@ -444,12 +464,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488A48F3291D099A00C0C6C2 /* MoyaProviderServices.swift in Sources */,
 				48067CA9291BEA47004C462B /* SearchViewController.swift in Sources */,
+				488A48F5291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift in Sources */,
 				488A48DC291CFD4800C0C6C2 /* String+Extension.swift in Sources */,
+				488A48F1291D096100C0C6C2 /* AppError.swift in Sources */,
 				48067CA5291BEA47004C462B /* AppDelegate.swift in Sources */,
 				48067CEA291C1DA3004C462B /* RepoViewData.swift in Sources */,
 				48067CF0291C228A004C462B /* RepoTableViewCell.swift in Sources */,
 				488A48D6291CF0D600C0C6C2 /* ReposListViewController.swift in Sources */,
+				488A48FB291D215E00C0C6C2 /* MoyaNetworkManager.swift in Sources */,
 				48067CE8291C1B62004C462B /* ReposData.swift in Sources */,
 				48067CA7291BEA47004C462B /* SceneDelegate.swift in Sources */,
 				48067CD9291BF1CD004C462B /* SearchViewModel.swift in Sources */,

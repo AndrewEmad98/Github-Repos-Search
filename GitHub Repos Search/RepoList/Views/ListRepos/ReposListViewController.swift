@@ -13,7 +13,7 @@ class ReposListViewController: UIViewController {
 
     //MARK: - properties
     private let tableView = UITableView()
-    private let viewModel = SearchViewModel()
+    private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     var text: String?
     var pageNumber = 0

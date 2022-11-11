@@ -27,6 +27,7 @@ class MoyaNetworkManager: NetworkingProviderProtocol {
     }
     
     private func getNativeRepos(query: String)-> Observable<ReposData> {
+        print("")
         return provider.rx.request(.getRepos(query: query)).map(ReposData.self).asObservable()
     }
 

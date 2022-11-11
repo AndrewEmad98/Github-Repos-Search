@@ -20,7 +20,6 @@ class SearchViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // bind searchController Text to view model
         bindData()
     }
     private func setupUI(){
@@ -32,19 +31,18 @@ class SearchViewController: UIViewController{
         searchController.searchBar.delegate = self
     }
     private func bindData(){
-        let searchResults = searchController.searchBar.rx.text.orEmpty
+        searchController.searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
             .flatMapLatest { [weak self] query -> Observable<[RepoViewData]> in
                 guard let self = self else { return .just([]) }
                 if query.isEmpty {
                     return .just([])
                 }
                 return self.viewModel.searchGitHub(query).catchAndReturn([])
-            }.observe(on: MainScheduler.instance)
-        searchResults.bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
-            cell.cellSetup(repo: element)
-        }.disposed(by: disposeBag)
+            }
+            .bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
+                cell.cellSetup(repo: element)
+            }.disposed(by: disposeBag)
     }
 }
 

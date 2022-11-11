@@ -23,7 +23,7 @@ class RepoTableViewCell: UITableViewCell {
     
     func cellSetup(repo: RepoViewData){
         programmingLanguage.text = repo.repoProgrammingLanguage
-        starsNumberLabel.text = repo.starsCount
+        starsNumberLabel.text = "\(repo.starsCount)"
         repoDescriptionLabel.text = repo.repoDescription
         repoNameLabel.text = repo.repoName
         ownerAvatarImageView.kf.setImage(with: repo.ownerAvatarURL.toURl)

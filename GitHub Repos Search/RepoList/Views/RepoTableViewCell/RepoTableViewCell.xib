@@ -21,21 +21,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0j-he-94c">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="180"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-68-wvT" userLabel="Main Stack View">
-                                <rect key="frame" x="16" y="8" width="286" height="164"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-68-wvT" userLabel="Main Stack View">
+                                <rect key="frame" x="16" y="16" width="286" height="148"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-fo-sdB" userLabel="Owner Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="41"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-fo-sdB" userLabel="Owner Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="37"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oaa-Mz-zcK" userLabel="Owner Image View">
-                                                <rect key="frame" x="0.0" y="8" width="30" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="6" width="30" height="25.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="aDn-TW-XFX"/>
                                                     <constraint firstAttribute="height" constant="30" id="gNb-Bl-dNO"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaT-MD-HZT" userLabel="Owner Name Label">
-                                                <rect key="frame" x="54" y="12" width="79.5" height="17"/>
+                                                <rect key="frame" x="54" y="10" width="79.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -43,22 +43,22 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ior-14-xsZ" userLabel="Repo Name Label">
-                                        <rect key="frame" x="0.0" y="41" width="40.5" height="41"/>
+                                        <rect key="frame" x="0.0" y="47" width="40.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="X39-Xg-0yU" userLabel="Repo description Label">
-                                        <rect key="frame" x="0.0" y="82" width="41.5" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="X39-Xg-0yU" userLabel="Repo description Label">
+                                        <rect key="frame" x="0.0" y="81" width="41.5" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oDC-4U-t5t" userLabel="Owner Stack View">
-                                        <rect key="frame" x="0.0" y="123" width="178" height="41"/>
+                                        <rect key="frame" x="0.0" y="116.5" width="178" height="31.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-ZU-B5W">
-                                                <rect key="frame" x="0.0" y="10.5" width="84" height="20"/>
+                                                <rect key="frame" x="0.0" y="5.5" width="84" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Npp-7D-iry" userLabel="Star Image View">
                                                         <rect key="frame" x="0.0" y="-0.5" width="20" height="20"/>
@@ -87,7 +87,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hke-tD-Zkx">
-                                                <rect key="frame" x="94" y="10.5" width="84" height="20"/>
+                                                <rect key="frame" x="94" y="5.5" width="84" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Miy-CX-gH9" userLabel="progLanguage Image View">
                                                         <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
@@ -122,8 +122,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="k1q-68-wvT" secondAttribute="bottom" constant="8" id="VCN-HK-SPc"/>
-                            <constraint firstItem="k1q-68-wvT" firstAttribute="top" secondItem="w0j-he-94c" secondAttribute="top" constant="8" id="bfm-xg-xLw"/>
+                            <constraint firstAttribute="bottom" secondItem="k1q-68-wvT" secondAttribute="bottom" constant="16" id="VCN-HK-SPc"/>
+                            <constraint firstItem="k1q-68-wvT" firstAttribute="top" secondItem="w0j-he-94c" secondAttribute="top" constant="16" id="bfm-xg-xLw"/>
                             <constraint firstAttribute="trailing" secondItem="k1q-68-wvT" secondAttribute="trailing" constant="16" id="kE1-xJ-pgA"/>
                             <constraint firstItem="k1q-68-wvT" firstAttribute="leading" secondItem="w0j-he-94c" secondAttribute="leading" constant="16" id="vJp-mn-r6k"/>
                         </constraints>

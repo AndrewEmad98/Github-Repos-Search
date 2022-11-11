@@ -27,8 +27,10 @@ class SearchViewController: UIViewController{
         tableView.register(UINib(nibName: "RepoTableViewCell", bundle: nil), forCellReuseIdentifier: "RepoTableViewCell")
         tableView.frame = view.bounds
         tableView.backgroundColor = view.backgroundColor
+        tableView.separatorColor = .lightGray
         view.addSubview(tableView)
         searchController.searchBar.delegate = self
+        searchController.searchBar.autocapitalizationType = .none
     }
     private func bindData(){
         searchController.searchBar.rx.text.orEmpty
@@ -38,6 +40,7 @@ class SearchViewController: UIViewController{
                 if query.isEmpty {
                     return .just([])
                 }
+                print("searching now")
                 return self.viewModel.searchGitHub(query).catchAndReturn([])
             }
             .bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in

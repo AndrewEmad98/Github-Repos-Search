@@ -30,6 +30,7 @@ enum MoyaProviderServices: TargetType{
         return ["Content-Type": "application/json"]
     }
     var task: Task {
+        print("Call the Api")
         switch self {
         case .getRepos(let query):
             return .requestParameters(parameters: [

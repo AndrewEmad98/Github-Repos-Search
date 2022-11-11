@@ -15,19 +15,11 @@ class SearchViewModel{
     }
     
     //MARK: - methods
-    func searchGitHub(_ query: String) -> BehaviorSubject<[RepoViewData]>{
-        // call the Api and get the data
-        print("Hello Search binding")
+    func searchGitHub(_ query: String) -> Observable<[RepoViewData]>{
         guard let networkProvider = networkProvider else {
             return reposData
         }
-        let data = networkProvider.getRepos(query: query)
-//        let data = [
-//            RepoViewData(ownerName: "dsa", ownerAvatarURL: "", repoName: "dsadad", repoDescription: "csacasc", starsCount: 3000, repoProgrammingLanguage: "python")
-//        ]
-        reposData.onNext(data)
-        //reposData.onCompleted()
-        return reposData
+        return networkProvider.getRepos(query: query)
     }
     
 }

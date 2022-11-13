@@ -15,7 +15,7 @@ class HomeViewController: UIViewController{
     //MARK: - properties
     private let searchController = UISearchController()
     private let tableView = UITableView()
-    private let viewModel = HomeViewModel(networkProvider: MoyaNetworkManager.shared)
+    private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     
     //MARK: - Methods
@@ -40,6 +40,7 @@ class HomeViewController: UIViewController{
         // subscribe the table view to Api data depand on the search bar text
         searchController.searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .flatMapLatest { [weak self] query -> Observable<[RepoViewData]> in
                 guard let self = self else { return .just([]) }
                 if query.isEmpty {

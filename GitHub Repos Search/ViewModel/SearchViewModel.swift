@@ -3,7 +3,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class HomeViewModel{
+class SearchViewModel{
     
     //MARK: - properties
     private var disposeBag = DisposeBag()
@@ -33,11 +33,13 @@ class HomeViewModel{
     func getNewItems(){
         pageNumber += 1
         print(pageNumber)
+        loader.onNext(true)
         let observable = searchGitHub(query!, page: pageNumber)
         observable.bind { [weak self] data in
             guard let self = self else{return}
             let newData = self.items.value + data
             self.items.accept(newData)
+            self.loader.onNext(false)
         }.disposed(by: disposeBag)
     }
 }

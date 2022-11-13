@@ -14,7 +14,7 @@ class ReposListViewController: UIViewController {
 
     //MARK: - properties
     private let tableView = UITableView()
-    private let viewModel = HomeViewModel(networkProvider: MoyaNetworkManager.shared)
+    private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     var query: String?
     
@@ -39,7 +39,7 @@ class ReposListViewController: UIViewController {
     }
     
     private func bindData(){
-        
+        // table binding
         viewModel.query = query!
         viewModel.items.bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
             cell.cellSetup(repo: element)
@@ -54,6 +54,15 @@ class ReposListViewController: UIViewController {
             let contentHeight = self.tableView.contentSize.height
             if offSetY > (contentHeight - self.tableView.frame.size.height){
                 self.viewModel.getNewItems()
+            }
+        }.disposed(by: disposeBag)
+        
+        // loader pinding
+        viewModel.loader.subscribe { data in
+            if data.element ?? false {
+                ProgressHUD.show()
+            }else{
+                ProgressHUD.dismiss()
             }
         }.disposed(by: disposeBag)
     }

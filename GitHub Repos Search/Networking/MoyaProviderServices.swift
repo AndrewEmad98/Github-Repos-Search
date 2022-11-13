@@ -13,7 +13,7 @@ enum MoyaProviderServices: TargetType{
         let url = try? "https://api.github.com/search/repositories".asURL()
         return url!
     }
-   
+
     var path: String{
         return ""
     }
@@ -27,7 +27,9 @@ enum MoyaProviderServices: TargetType{
         }
     }
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json",
+                "User-Agent": "AndrewEmad98"
+        ]
     }
     var task: Task {
         switch self {

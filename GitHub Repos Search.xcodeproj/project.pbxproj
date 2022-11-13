@@ -16,7 +16,7 @@
 		48067CBC291BEA48004C462B /* GitHub_Repos_SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CBB291BEA48004C462B /* GitHub_Repos_SearchTests.swift */; };
 		48067CC6291BEA48004C462B /* GitHub_Repos_SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CC5291BEA48004C462B /* GitHub_Repos_SearchUITests.swift */; };
 		48067CC8291BEA48004C462B /* GitHub_Repos_SearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CC7291BEA48004C462B /* GitHub_Repos_SearchUITestsLaunchTests.swift */; };
-		48067CD9291BF1CD004C462B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CD8291BF1CD004C462B /* HomeViewModel.swift */; };
+		48067CD9291BF1CD004C462B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CD8291BF1CD004C462B /* SearchViewModel.swift */; };
 		48067CE8291C1B62004C462B /* ReposData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CE7291C1B62004C462B /* ReposData.swift */; };
 		48067CEA291C1DA3004C462B /* RepoViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CE9291C1DA3004C462B /* RepoViewData.swift */; };
 		48067CF0291C228A004C462B /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48067CEE291C228A004C462B /* RepoTableViewCell.swift */; };
@@ -62,7 +62,7 @@
 		48067CC1291BEA48004C462B /* GitHub Repos SearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub Repos SearchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48067CC5291BEA48004C462B /* GitHub_Repos_SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_Repos_SearchUITests.swift; sourceTree = "<group>"; };
 		48067CC7291BEA48004C462B /* GitHub_Repos_SearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_Repos_SearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		48067CD8291BF1CD004C462B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		48067CD8291BF1CD004C462B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		48067CE7291C1B62004C462B /* ReposData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposData.swift; sourceTree = "<group>"; };
 		48067CE9291C1DA3004C462B /* RepoViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewData.swift; sourceTree = "<group>"; };
 		48067CEE291C228A004C462B /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 		48067CD7291BF1B8004C462B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				48067CD8291BF1CD004C462B /* HomeViewModel.swift */,
+				48067CD8291BF1CD004C462B /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -484,7 +484,7 @@
 				488A48FB291D215E00C0C6C2 /* MoyaNetworkManager.swift in Sources */,
 				48067CE8291C1B62004C462B /* ReposData.swift in Sources */,
 				48067CA7291BEA47004C462B /* SceneDelegate.swift in Sources */,
-				48067CD9291BF1CD004C462B /* HomeViewModel.swift in Sources */,
+				48067CD9291BF1CD004C462B /* SearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

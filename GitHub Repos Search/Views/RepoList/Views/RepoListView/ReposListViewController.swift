@@ -13,7 +13,7 @@ class ReposListViewController: UIViewController {
 
     //MARK: - properties
     private let tableView = UITableView()
-    private let viewModel = RepoListViewModel(networkProvider: MoyaNetworkManager.shared)
+    private let viewModel = HomeViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     var query: String?
     

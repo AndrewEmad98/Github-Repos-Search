@@ -26,7 +26,6 @@
 		488A48F3291D099A00C0C6C2 /* MoyaProviderServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */; };
 		488A48F5291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F4291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift */; };
 		488A48FB291D215E00C0C6C2 /* MoyaNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48FA291D215E00C0C6C2 /* MoyaNetworkManager.swift */; };
-		4898F2B329212B7F0044BF28 /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898F2B229212B7F0044BF28 /* RepoListViewModel.swift */; };
 		4898F2BA292131F60044BF28 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898F2B9292131F60044BF28 /* ReposListViewController.swift */; };
 		95ED8B26C370ABF0771B5EA7 /* Pods_GitHub_Repos_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F508CE105B24FAE8A7F35 /* Pods_GitHub_Repos_Search.framework */; };
 /* End PBXBuildFile section */
@@ -73,7 +72,6 @@
 		488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaProviderServices.swift; sourceTree = "<group>"; };
 		488A48F4291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProviderProtocol.swift; sourceTree = "<group>"; };
 		488A48FA291D215E00C0C6C2 /* MoyaNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaNetworkManager.swift; sourceTree = "<group>"; };
-		4898F2B229212B7F0044BF28 /* RepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
 		4898F2B9292131F60044BF28 /* ReposListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		6770A5BAB26BDE91CF29D702 /* Pods-GitHub Repos Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Repos Search.debug.xcconfig"; path = "Target Support Files/Pods-GitHub Repos Search/Pods-GitHub Repos Search.debug.xcconfig"; sourceTree = "<group>"; };
 		A9CD3E50B3F3FD4A805549E1 /* Pods-GitHub Repos Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Repos Search.release.xcconfig"; path = "Target Support Files/Pods-GitHub Repos Search/Pods-GitHub Repos Search.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,9 +141,8 @@
 				48067CD4291BEBAF004C462B /* App Life Cycle */,
 				488A48EF291D087800C0C6C2 /* Networking */,
 				48067CDA291BFA90004C462B /* Model */,
-				48067CED291C1FC9004C462B /* RepoList */,
-				48067CD5291BEC40004C462B /* Home */,
-				488A48D9291CFA1600C0C6C2 /* Views */,
+				4898F2BB292156150044BF28 /* Views */,
+				48067CD7291BF1B8004C462B /* ViewModel */,
 				48067CAD291BEA48004C462B /* Assets.xcassets */,
 				48067CB2291BEA48004C462B /* Info.plist */,
 			);
@@ -181,7 +178,6 @@
 		48067CD5291BEC40004C462B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				48067CD7291BF1B8004C462B /* ViewModel */,
 				48067CD6291BEC49004C462B /* Views */,
 			);
 			path = Home;
@@ -223,7 +219,6 @@
 		48067CED291C1FC9004C462B /* RepoList */ = {
 			isa = PBXGroup;
 			children = (
-				4898F2AF2921286B0044BF28 /* ViewModel */,
 				48067CF2291C2294004C462B /* Views */,
 			);
 			path = RepoList;
@@ -247,13 +242,13 @@
 			path = RepoTableViewCell;
 			sourceTree = "<group>";
 		};
-		488A48D9291CFA1600C0C6C2 /* Views */ = {
+		488A48D9291CFA1600C0C6C2 /* UI Views */ = {
 			isa = PBXGroup;
 			children = (
 				48067CAA291BEA47004C462B /* Main.storyboard */,
 				48067CAF291BEA48004C462B /* LaunchScreen.storyboard */,
 			);
-			path = Views;
+			path = "UI Views";
 			sourceTree = "<group>";
 		};
 		488A48DA291CFD3500C0C6C2 /* Extensions */ = {
@@ -275,20 +270,22 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		4898F2AF2921286B0044BF28 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				4898F2B229212B7F0044BF28 /* RepoListViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		4898F2B42921315C0044BF28 /* RepoListView */ = {
 			isa = PBXGroup;
 			children = (
 				4898F2B9292131F60044BF28 /* ReposListViewController.swift */,
 			);
 			path = RepoListView;
+			sourceTree = "<group>";
+		};
+		4898F2BB292156150044BF28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				488A48D9291CFA1600C0C6C2 /* UI Views */,
+				48067CD5291BEC40004C462B /* Home */,
+				48067CED291C1FC9004C462B /* RepoList */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C237F783039BE5FFF87041C9 /* Frameworks */ = {
@@ -485,7 +482,6 @@
 				48067CEA291C1DA3004C462B /* RepoViewData.swift in Sources */,
 				48067CF0291C228A004C462B /* RepoTableViewCell.swift in Sources */,
 				488A48FB291D215E00C0C6C2 /* MoyaNetworkManager.swift in Sources */,
-				4898F2B329212B7F0044BF28 /* RepoListViewModel.swift in Sources */,
 				48067CE8291C1B62004C462B /* ReposData.swift in Sources */,
 				48067CA7291BEA47004C462B /* SceneDelegate.swift in Sources */,
 				48067CD9291BF1CD004C462B /* HomeViewModel.swift in Sources */,

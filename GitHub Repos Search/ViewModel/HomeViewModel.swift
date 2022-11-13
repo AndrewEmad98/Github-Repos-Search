@@ -9,7 +9,10 @@ class HomeViewModel{
     private var disposeBag = DisposeBag()
     private var networkProvider: NetworkingProviderProtocol?
     private var reposData = PublishSubject<[RepoViewData]>()
-
+    var items = BehaviorRelay<[RepoViewData]>(value: [])
+    var query: String?
+    var pageNumber = 0
+    
     init(networkProvider: NetworkingProviderProtocol){
         self.networkProvider = networkProvider
     }
@@ -20,5 +23,15 @@ class HomeViewModel{
             return reposData
         }
         return networkProvider.getRepos(query: query, page: page)
+    }
+    func getNewItems(){
+        pageNumber += 1
+        print(pageNumber)
+        let observable = searchGitHub(query!, page: pageNumber)
+        observable.bind { [weak self] data in
+            guard let self = self else{return}
+            let newData = self.items.value + data
+            self.items.accept(newData)
+        }.disposed(by: disposeBag)
     }
 }

@@ -10,12 +10,12 @@ import RxSwift
 import RxCocoa
 import ProgressHUD
 
-class SearchViewController: UIViewController{
+class HomeViewController: UIViewController{
 
     //MARK: - properties
     private let searchController = UISearchController()
     private let tableView = UITableView()
-    private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
+    private let viewModel = HomeViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     
     //MARK: - Methods
@@ -44,9 +44,8 @@ class SearchViewController: UIViewController{
                     return .just([])
                 }
                 //ProgressHUD.show()
-                let observable = self.viewModel.searchGitHub(query).catchAndReturn([])
                 //ProgressHUD.dismiss()
-                return observable
+                return self.viewModel.searchGitHub(query).catchAndReturn([])
             }
             .bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
                 cell.cellSetup(repo: element)
@@ -63,7 +62,7 @@ class SearchViewController: UIViewController{
 }
 
 //MARK: - search bar delegate methods
-extension SearchViewController: UISearchBarDelegate {
+extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         // navigate to next Page

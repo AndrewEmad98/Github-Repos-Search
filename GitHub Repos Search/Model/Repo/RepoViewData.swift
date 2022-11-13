@@ -11,7 +11,7 @@ struct RepoViewData{
     let ownerName : String
     let ownerAvatarURL : String
     let repoName: String
-    let repoDescription: String
+    let repoDescription: String?
     let starsCount: Int
     let repoProgrammingLanguage: String
 }

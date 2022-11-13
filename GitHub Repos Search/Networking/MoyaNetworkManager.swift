@@ -17,13 +17,14 @@ class MoyaNetworkManager: NetworkingProviderProtocol {
     static let shared = MoyaNetworkManager()
     private init(){}
     
-    func getRepos(query: String)-> Observable<[RepoViewData]> {
-        //MoyaProviderServices.pageNumber = page
+    func getRepos(query: String,page: Int = 1)-> Observable<[RepoViewData]> {
+        MoyaProviderServices.pageNumber = page
         return getNativeRepos(query: query).map { [weak self] nativeData -> [RepoViewData]  in
             guard let self = self else {return []}
             return self.parseData(data: nativeData)
-        }
+        }.asObservable()
     }
+
     
     private func getNativeRepos(query: String)-> Observable<ReposData> {
         return provider.rx.request(.getRepos(query: query)).map(ReposData.self).asObservable()

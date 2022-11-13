@@ -10,5 +10,5 @@ import RxSwift
 import RxCocoa
 
 protocol NetworkingProviderProtocol {
-    func getRepos(query: String) -> Observable<[RepoViewData]>
+    func getRepos(query: String,page: Int) -> Observable<[RepoViewData]>
 }

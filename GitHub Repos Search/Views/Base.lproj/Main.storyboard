@@ -11,7 +11,7 @@
         <!--GitHub-->
         <scene sceneID="Sx9-uV-BmD">
             <objects>
-                <viewController id="C6P-cE-nZH" customClass="SearchViewController" customModule="GitHub_Repos_Search" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C6P-cE-nZH" customClass="HomeViewController" customModule="GitHub_Repos_Search" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="erY-96-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

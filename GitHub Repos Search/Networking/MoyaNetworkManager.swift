@@ -16,18 +16,16 @@ class MoyaNetworkManager: NetworkingProviderProtocol {
     
     static let shared = MoyaNetworkManager()
     private init(){}
-    private var disposeBag = DisposeBag()
     
     func getRepos(query: String)-> Observable<[RepoViewData]> {
+        //MoyaProviderServices.pageNumber = page
         return getNativeRepos(query: query).map { [weak self] nativeData -> [RepoViewData]  in
             guard let self = self else {return []}
-            print(nativeData)
             return self.parseData(data: nativeData)
-        }.asObservable()
+        }
     }
     
     private func getNativeRepos(query: String)-> Observable<ReposData> {
-        print("")
         return provider.rx.request(.getRepos(query: query)).map(ReposData.self).asObservable()
     }
 

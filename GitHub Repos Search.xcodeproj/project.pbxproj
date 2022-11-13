@@ -140,6 +140,8 @@
 				488A48DA291CFD3500C0C6C2 /* Extensions */,
 				48067CD4291BEBAF004C462B /* App Life Cycle */,
 				488A48EF291D087800C0C6C2 /* Networking */,
+				48067CDA291BFA90004C462B /* Model */,
+				48067CD7291BF1B8004C462B /* ViewModel */,
 				48067CED291C1FC9004C462B /* RepoList */,
 				48067CD5291BEC40004C462B /* Home */,
 				488A48D9291CFA1600C0C6C2 /* Views */,
@@ -178,18 +180,17 @@
 		48067CD5291BEC40004C462B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				48067CD7291BF1B8004C462B /* ViewModel */,
-				48067CD6291BEC49004C462B /* View */,
+				48067CD6291BEC49004C462B /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		48067CD6291BEC49004C462B /* View */ = {
+		48067CD6291BEC49004C462B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				48067CA8291BEA47004C462B /* SearchViewController.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		48067CD7291BF1B8004C462B /* ViewModel */ = {
@@ -220,7 +221,6 @@
 		48067CED291C1FC9004C462B /* RepoList */ = {
 			isa = PBXGroup;
 			children = (
-				48067CDA291BFA90004C462B /* Model */,
 				48067CF2291C2294004C462B /* Views */,
 			);
 			path = RepoList;

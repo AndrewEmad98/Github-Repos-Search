@@ -15,7 +15,7 @@ class SearchViewModel{
     }
     
     //MARK: - methods
-    func searchGitHub(_ query: String) -> Observable<[RepoViewData]>{
+    func searchGitHub(_ query: String, page: Int = 1) -> Observable<[RepoViewData]>{
         guard let networkProvider = networkProvider else {
             return reposData
         }

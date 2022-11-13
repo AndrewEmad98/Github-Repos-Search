@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class SearchViewController: UIViewController{
 
@@ -17,6 +18,7 @@ class SearchViewController: UIViewController{
     private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
     private var disposeBag = DisposeBag()
     
+    //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -28,6 +30,7 @@ class SearchViewController: UIViewController{
         tableView.frame = view.bounds
         tableView.backgroundColor = view.backgroundColor
         tableView.separatorColor = .lightGray
+        tableView.allowsSelection = false
         view.addSubview(tableView)
         searchController.searchBar.delegate = self
         searchController.searchBar.autocapitalizationType = .none
@@ -40,12 +43,22 @@ class SearchViewController: UIViewController{
                 if query.isEmpty {
                     return .just([])
                 }
-                print("searching now")
-                return self.viewModel.searchGitHub(query).catchAndReturn([])
+                //ProgressHUD.show()
+                let observable = self.viewModel.searchGitHub(query).catchAndReturn([])
+                //ProgressHUD.dismiss()
+                return observable
             }
             .bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
                 cell.cellSetup(repo: element)
             }.disposed(by: disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToDetails"{
+            if let destination = segue.destination as? ReposListViewController {
+                destination.query = searchController.searchBar.text ?? ""
+            }
+        }
     }
 }
 

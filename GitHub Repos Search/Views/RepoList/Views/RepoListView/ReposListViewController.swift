@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class ReposListViewController: UIViewController {
 
@@ -30,12 +31,15 @@ class ReposListViewController: UIViewController {
         tableView.register(UINib(nibName: "RepoTableViewCell", bundle: nil), forCellReuseIdentifier: "RepoTableViewCell")
         tableView.frame = view.bounds
         tableView.backgroundColor = view.backgroundColor
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.refreshControl = UIRefreshControl()
         tableView.separatorColor = .lightGray
         tableView.allowsSelection = false
         view.addSubview(tableView)
     }
     
     private func bindData(){
+        
         viewModel.query = query!
         viewModel.items.bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
             cell.cellSetup(repo: element)

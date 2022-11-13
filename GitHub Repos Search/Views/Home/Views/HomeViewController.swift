@@ -36,6 +36,8 @@ class HomeViewController: UIViewController{
         searchController.searchBar.autocapitalizationType = .none
     }
     private func bindData(){
+        
+        // subscribe the table view to Api data depand on the search bar text
         searchController.searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .flatMapLatest { [weak self] query -> Observable<[RepoViewData]> in
@@ -43,13 +45,19 @@ class HomeViewController: UIViewController{
                 if query.isEmpty {
                     return .just([])
                 }
-                //ProgressHUD.show()
-                //ProgressHUD.dismiss()
                 return self.viewModel.searchGitHub(query).catchAndReturn([])
             }
             .bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
                 cell.cellSetup(repo: element)
             }.disposed(by: disposeBag)
+        
+        viewModel.loader.subscribe { data in
+            if data.element ?? false {
+                ProgressHUD.show()
+            }else{
+                ProgressHUD.dismiss()
+            }
+        }.disposed(by: disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

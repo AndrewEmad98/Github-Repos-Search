@@ -9,6 +9,7 @@ class HomeViewModel{
     private var disposeBag = DisposeBag()
     private var networkProvider: NetworkingProviderProtocol?
     private var reposData = PublishSubject<[RepoViewData]>()
+    var loader = PublishSubject<Bool>()
     var items = BehaviorRelay<[RepoViewData]>(value: [])
     var query: String?
     var pageNumber = 0
@@ -22,7 +23,12 @@ class HomeViewModel{
         guard let networkProvider = networkProvider else {
             return reposData
         }
-        return networkProvider.getRepos(query: query, page: page)
+        loader.onNext(true)
+        let observable = networkProvider.getRepos(query: query, page: page)
+        observable.subscribe { [weak self] _ in
+            self?.loader.onNext(false)
+        }.disposed(by: disposeBag)
+        return observable
     }
     func getNewItems(){
         pageNumber += 1

@@ -10,6 +10,7 @@ class SearchViewModel{
     private var networkProvider: NetworkingProviderProtocol?
     private var reposData = PublishSubject<[RepoViewData]>()
     var loader = PublishSubject<Bool>()
+    var errorDetactor = PublishSubject<AppError>()
     var items = BehaviorRelay<[RepoViewData]>(value: [])
     var query: String?
     var pageNumber = 0
@@ -19,17 +20,27 @@ class SearchViewModel{
     }
     
     //MARK: - methods
+    
     func searchGitHub(_ query: String,page: Int = 1) -> Observable<[RepoViewData]>{
         guard let networkProvider = networkProvider else {
             return reposData
         }
         loader.onNext(true)
         let observable = networkProvider.getRepos(query: query, page: page)
-        observable.subscribe { [weak self] _ in
+        observable.subscribe { [weak self] event in
             self?.loader.onNext(false)
+            switch event{
+            case .error(let error):
+                let serverError = AppError.serverError(error.localizedDescription)
+                self?.errorDetactor.onNext(serverError)
+                self?.pageNumber -= 1
+            default:
+                break
+            }
         }.disposed(by: disposeBag)
         return observable
     }
+    
     func getNewItems(){
         pageNumber += 1
         print(pageNumber)

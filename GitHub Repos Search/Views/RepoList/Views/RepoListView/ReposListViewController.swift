@@ -47,7 +47,7 @@ class ReposListViewController: UIViewController {
 
         // pagination binding
         tableView.rx.didScroll
-            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
             .bind { [weak self] _ in
             guard let self = self else { return }
             let offSetY = self.tableView.contentOffset.y
@@ -57,7 +57,7 @@ class ReposListViewController: UIViewController {
             }
         }.disposed(by: disposeBag)
         
-        // loader pinding
+        // loader binding
         viewModel.loader.subscribe { data in
             if data.element ?? false {
                 ProgressHUD.show()
@@ -65,5 +65,21 @@ class ReposListViewController: UIViewController {
                 ProgressHUD.dismiss()
             }
         }.disposed(by: disposeBag)
+        
+        // error binding
+        viewModel.errorDetactor.subscribe { [weak self] error in
+            switch error.element ?? .none {
+            case .serverError(_):
+                self?.makeAlert(error.element?.errorDescription ?? "")
+            default:
+                break
+            }
+        }.disposed(by: disposeBag)
+    }
+    
+    private func makeAlert(_ error: String){
+        let alert = UIAlertController(title: "Error Happened", message: error, preferredStyle: .alert)
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
     }
 }

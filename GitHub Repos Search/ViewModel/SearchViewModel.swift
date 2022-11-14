@@ -43,7 +43,6 @@ class SearchViewModel{
     
     func getNewItems(){
         pageNumber += 1
-        print(pageNumber)
         loader.onNext(true)
         let observable = searchGitHub(query!, page: pageNumber)
         observable.bind { [weak self] data in

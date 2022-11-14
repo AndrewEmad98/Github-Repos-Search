@@ -47,7 +47,7 @@ class ReposListViewController: UIViewController {
 
         // pagination binding
         tableView.rx.didScroll
-            .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(4000), scheduler: MainScheduler.instance)
             .bind { [weak self] _ in
             guard let self = self else { return }
             let offSetY = self.tableView.contentOffset.y

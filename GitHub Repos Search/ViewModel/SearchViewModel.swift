@@ -8,7 +8,6 @@ class SearchViewModel{
     //MARK: - properties
     private var disposeBag = DisposeBag()
     private var networkProvider: NetworkingProviderProtocol?
-    private var reposData = PublishSubject<[RepoViewData]>()
     var loader = PublishSubject<Bool>()
     var errorDetactor = PublishSubject<AppError>()
     var items = BehaviorRelay<[RepoViewData]>(value: [])
@@ -23,7 +22,7 @@ class SearchViewModel{
     
     func searchGitHub(_ query: String,page: Int = 1) -> Observable<[RepoViewData]>{
         guard let networkProvider = networkProvider else {
-            return reposData
+            return .just([])
         }
         loader.onNext(true)
         let observable = networkProvider.getRepos(query: query, page: page)

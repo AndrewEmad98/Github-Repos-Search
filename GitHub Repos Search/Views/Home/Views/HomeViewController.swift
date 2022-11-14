@@ -21,10 +21,10 @@ class HomeViewController: UIViewController{
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        layout()
         bindData()
     }
-    private func setupUI(){
+    private func layout(){
         navigationItem.searchController = searchController
         tableView.register(UINib(nibName: "RepoTableViewCell", bundle: nil), forCellReuseIdentifier: "RepoTableViewCell")
         tableView.frame = view.bounds
@@ -46,6 +46,7 @@ class HomeViewController: UIViewController{
                 if query.isEmpty {
                     return .just([])
                 }
+                self.tableView.isHidden = false
                 return self.viewModel.searchGitHub(query).catchAndReturn([])
             }
             .bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
@@ -76,5 +77,9 @@ extension HomeViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         // navigate to next Page
         performSegue(withIdentifier: "GoToDetails", sender: self)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // clear the results
+        tableView.isHidden = true
     }
 }

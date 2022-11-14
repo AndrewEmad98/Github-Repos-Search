@@ -23,11 +23,11 @@ class ReposListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Repositories"
-        setupUI()
+        layout()
         bindData()
     }
     
-    private func setupUI(){
+    private func layout(){
         tableView.register(UINib(nibName: "RepoTableViewCell", bundle: nil), forCellReuseIdentifier: "RepoTableViewCell")
         tableView.frame = view.bounds
         tableView.backgroundColor = view.backgroundColor
@@ -47,7 +47,7 @@ class ReposListViewController: UIViewController {
 
         // pagination binding
         tableView.rx.didScroll
-            .throttle(.milliseconds(4000), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(2000), scheduler: MainScheduler.instance)
             .bind { [weak self] _ in
             guard let self = self else { return }
             let offSetY = self.tableView.contentOffset.y

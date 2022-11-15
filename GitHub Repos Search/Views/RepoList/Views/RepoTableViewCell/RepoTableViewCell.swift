@@ -21,7 +21,7 @@ class RepoTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func cellSetup(repo: RepoViewData){
+    func cellSetup(repo: RepoViewDataProtocol){
         programmingLanguage.text = repo.repoProgrammingLanguage
         var owner = repo.ownerName
         if let i = owner.firstIndex(of: "/") {

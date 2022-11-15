@@ -10,7 +10,7 @@ class SearchViewModel{
     private var networkProvider: NetworkingProviderProtocol?
     var loader = PublishSubject<Bool>()
     var errorDetactor = PublishSubject<AppError>()
-    var items = BehaviorRelay<[RepoViewData]>(value: [])
+    var items = BehaviorRelay<[RepoViewDataProtocol]>(value: [])
     var query: String?
     var pageNumber = 0
     
@@ -20,7 +20,7 @@ class SearchViewModel{
     
     //MARK: - methods
     
-    func searchGitHub(_ query: String,page: Int = 1) -> Observable<[RepoViewData]>{
+    func searchGitHub(_ query: String,page: Int = 1) -> Observable<[RepoViewDataProtocol]>{
         guard let networkProvider = networkProvider else {
             return .just([])
         }

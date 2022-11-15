@@ -41,7 +41,7 @@ class HomeViewController: UIViewController{
         searchController.searchBar.rx.text.orEmpty
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .flatMapLatest { [weak self] query -> Observable<[RepoViewData]> in
+            .flatMapLatest { [weak self] query -> Observable<[RepoViewDataProtocol]> in
                 guard let self = self else { return .just([]) }
                 if query.isEmpty {
                     return .just([])

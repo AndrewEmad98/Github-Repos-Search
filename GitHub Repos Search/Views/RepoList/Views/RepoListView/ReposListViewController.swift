@@ -10,12 +10,10 @@ import RxSwift
 import RxCocoa
 import ProgressHUD
 
-class ReposListViewController: UIViewController {
+class ReposListViewController: BaseViewController {
 
     //MARK: - properties
-    private let tableView = UITableView()
-    private let viewModel = SearchViewModel(networkProvider: MoyaNetworkManager.shared)
-    private var disposeBag = DisposeBag()
+
     var query: String?
     
     
@@ -23,27 +21,14 @@ class ReposListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Repositories"
-        layout()
+        super.layout()
         bindData()
     }
-    
-    private func layout(){
-        tableView.register(UINib(nibName: "RepoTableViewCell", bundle: nil), forCellReuseIdentifier: "RepoTableViewCell")
-        tableView.frame = view.bounds
-        tableView.backgroundColor = view.backgroundColor
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.refreshControl = UIRefreshControl()
-        tableView.separatorColor = .lightGray
-        tableView.allowsSelection = false
-        view.addSubview(tableView)
-    }
-    
+
     private func bindData(){
         // table binding
         viewModel.query = query!
-        viewModel.items.bind(to: tableView.rx.items(cellIdentifier: "RepoTableViewCell", cellType: RepoTableViewCell.self)){ row,element,cell in
-            cell.cellSetup(repo: element)
-        }.disposed(by: disposeBag)
+        super.bindTableData(with: viewModel.itemsObservable)
 
         // pagination binding
         tableView.rx.didScroll
@@ -56,30 +41,7 @@ class ReposListViewController: UIViewController {
                 self.viewModel.getNewItems()
             }
         }.disposed(by: disposeBag)
-        
-        // loader binding
-        viewModel.loader.subscribe { data in
-            if data.element ?? false {
-                ProgressHUD.show()
-            }else{
-                ProgressHUD.dismiss()
-            }
-        }.disposed(by: disposeBag)
-        
-        // error binding
-        viewModel.errorDetactor.subscribe { [weak self] error in
-            switch error.element ?? .none {
-            case .serverError(_):
-                self?.makeAlert(error.element?.errorDescription ?? "")
-            default:
-                break
-            }
-        }.disposed(by: disposeBag)
+
     }
     
-    private func makeAlert(_ error: String){
-        let alert = UIAlertController(title: "Error Happened", message: error, preferredStyle: .alert)
-        alert.addAction(.init(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
-    }
 }

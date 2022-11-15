@@ -7,18 +7,7 @@
 
 import Foundation
 
-//struct RepoViewData{
-//    let ownerName : String
-//    let ownerAvatarURL : String
-//    let repoName: String
-//    let repoDescription: String?
-//    let starsCount: Int
-//    let repoProgrammingLanguage: String
-//}
-
-
 protocol RepoViewDataProtocol{
-    
     var ownerName : String { get }
     var ownerAvatarURL : String {get}
     var repoName: String {get}
@@ -52,7 +41,4 @@ extension Item:RepoViewDataProtocol {
     var repoProgrammingLanguage: String {
         self.language ?? ""
     }
-    
-    
-        
 }

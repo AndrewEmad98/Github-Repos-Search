@@ -2,6 +2,10 @@
 
 import Foundation
 
+protocol ErrorHandlerProtocol {
+    func makeUIErrorHandler(with message: String)
+}
+
 enum AppError: LocalizedError {
     case serverError(String)
     var errorDescription: String? {

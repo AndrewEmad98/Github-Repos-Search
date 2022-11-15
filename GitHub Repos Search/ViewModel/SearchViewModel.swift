@@ -7,17 +7,17 @@ class SearchViewModel{
     
     //MARK: - properties
     private var disposeBag = DisposeBag()
-    private var networkProvider: NetworkingProviderProtocol?
+    private var networkProvider: NetworkingProviderProtocol? = MoyaNetworkManager.shared
     var loader = PublishSubject<Bool>()
     var errorDetactor = PublishSubject<AppError>()
-    var items = BehaviorRelay<[RepoViewDataProtocol]>(value: [])
     var query: String?
     var pageNumber = 0
+    private var itemsRelay = BehaviorRelay<[RepoViewDataProtocol]>(value: [])
     
-    init(networkProvider: NetworkingProviderProtocol){
-        self.networkProvider = networkProvider
+    var itemsObservable: Observable<[RepoViewDataProtocol]>{
+        return itemsRelay.asObservable()
     }
-    
+
     //MARK: - methods
     
     func searchGitHub(_ query: String,page: Int = 1) -> Observable<[RepoViewDataProtocol]>{
@@ -42,12 +42,11 @@ class SearchViewModel{
     
     func getNewItems(){
         pageNumber += 1
-        loader.onNext(true)
         let observable = searchGitHub(query!, page: pageNumber)
         observable.bind { [weak self] data in
             guard let self = self else{return}
-            let newData = self.items.value + data
-            self.items.accept(newData)
+            let newData = self.itemsRelay.value + data
+            self.itemsRelay.accept(newData)
             self.loader.onNext(false)
         }.disposed(by: disposeBag)
     }

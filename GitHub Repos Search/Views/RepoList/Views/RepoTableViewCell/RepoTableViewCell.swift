@@ -23,12 +23,7 @@ class RepoTableViewCell: UITableViewCell {
     
     func cellSetup(repo: RepoViewDataProtocol){
         programmingLanguage.text = repo.repoProgrammingLanguage
-        var owner = repo.ownerName
-        //TODO:- remove logic from any view
-        if let i = owner.firstIndex(of: "/") {
-            owner.remove(at: i) // i is character index
-        }
-        ownerNameLabel.text = owner
+        ownerNameLabel.text = repo.ownerName
         starsNumberLabel.text = "\(repo.starsCount)"
         repoDescriptionLabel.text = repo.repoDescription
         repoNameLabel.text = repo.repoName

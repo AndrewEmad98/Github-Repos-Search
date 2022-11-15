@@ -23,6 +23,8 @@
 		48067CF1291C228A004C462B /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48067CEF291C228A004C462B /* RepoTableViewCell.xib */; };
 		481E39E82923A5700069344E /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E39E72923A5700069344E /* UIImageView+Extension.swift */; };
 		481E39EA2923A6850069344E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E39E92923A6850069344E /* BaseViewController.swift */; };
+		481E39EC2923D0340069344E /* ErrorHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E39EB2923D0340069344E /* ErrorHandlerProtocol.swift */; };
+		481E39EE2923D0760069344E /* Items+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481E39ED2923D0760069344E /* Items+Extension.swift */; };
 		488A48DC291CFD4800C0C6C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48DB291CFD4800C0C6C2 /* String+Extension.swift */; };
 		488A48F1291D096100C0C6C2 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F0291D096100C0C6C2 /* AppError.swift */; };
 		488A48F3291D099A00C0C6C2 /* MoyaProviderServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */; };
@@ -71,6 +73,8 @@
 		48067CEF291C228A004C462B /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
 		481E39E72923A5700069344E /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		481E39E92923A6850069344E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		481E39EB2923D0340069344E /* ErrorHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlerProtocol.swift; sourceTree = "<group>"; };
+		481E39ED2923D0760069344E /* Items+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Items+Extension.swift"; sourceTree = "<group>"; };
 		488A48DB291CFD4800C0C6C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		488A48F0291D096100C0C6C2 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaProviderServices.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 			children = (
 				488A48DB291CFD4800C0C6C2 /* String+Extension.swift */,
 				481E39E72923A5700069344E /* UIImageView+Extension.swift */,
+				481E39ED2923D0760069344E /* Items+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				488A48F2291D099A00C0C6C2 /* MoyaProviderServices.swift */,
 				488A48F4291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift */,
 				488A48F0291D096100C0C6C2 /* AppError.swift */,
+				481E39EB2923D0340069344E /* ErrorHandlerProtocol.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 				481E39E82923A5700069344E /* UIImageView+Extension.swift in Sources */,
 				488A48F5291D0CB800C0C6C2 /* NetworkingProviderProtocol.swift in Sources */,
 				488A48DC291CFD4800C0C6C2 /* String+Extension.swift in Sources */,
+				481E39EE2923D0760069344E /* Items+Extension.swift in Sources */,
 				481E39EA2923A6850069344E /* BaseViewController.swift in Sources */,
 				488A48F1291D096100C0C6C2 /* AppError.swift in Sources */,
 				48067CA5291BEA47004C462B /* AppDelegate.swift in Sources */,
@@ -493,6 +500,7 @@
 				48067CE8291C1B62004C462B /* ReposData.swift in Sources */,
 				48067CA7291BEA47004C462B /* SceneDelegate.swift in Sources */,
 				48067CD9291BF1CD004C462B /* SearchViewModel.swift in Sources */,
+				481E39EC2923D0340069344E /* ErrorHandlerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

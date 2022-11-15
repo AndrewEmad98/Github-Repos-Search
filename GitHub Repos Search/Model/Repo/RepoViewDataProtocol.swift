@@ -16,29 +16,3 @@ protocol RepoViewDataProtocol{
     var repoProgrammingLanguage: String {get}
 }
 
-
-extension Item:RepoViewDataProtocol {
-    var ownerName: String {
-        self.fullName
-    }
-    
-    var ownerAvatarURL: String {
-        self.owner.avatarURL
-    }
-    
-    var repoName: String {
-        self.name
-    }
-    
-    var repoDescription: String? {
-        self.itemDescription
-    }
-    
-    var starsCount: Int {
-        self.stargazersCount
-    }
-    
-    var repoProgrammingLanguage: String {
-        self.language ?? ""
-    }
-}

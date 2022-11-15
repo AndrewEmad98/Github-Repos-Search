@@ -8,14 +8,20 @@ class SearchViewModel{
     //MARK: - properties
     private var disposeBag = DisposeBag()
     private var networkProvider: NetworkingProviderProtocol? = MoyaNetworkManager.shared
-    var loader = PublishSubject<Bool>()
-    var errorDetactor = PublishSubject<AppError>()
+    private var loader = PublishSubject<Bool>()
+    private var errorDetactor = PublishSubject<AppError>()
     var query: String?
     var pageNumber = 0
     private var itemsRelay = BehaviorRelay<[RepoViewDataProtocol]>(value: [])
     
     var itemsObservable: Observable<[RepoViewDataProtocol]>{
         return itemsRelay.asObservable()
+    }
+    var loaderObservable: Observable<Bool>{
+        return loader.asObservable()
+    }
+    var errorDetactorObservable: Observable<AppError>{
+        return errorDetactor.asObservable()
     }
 
     //MARK: - methods
